@@ -1,22 +1,17 @@
-#!/usr/bin/env python3
-
 class Shoe:
-    
-    def __init__(self, brand, size):
-        self.size = size
+    def __init__(self, brand, size, color):
         self.brand = brand
+        self.size = size
+        self.color = color
 
-    @property
-    def size(self):
-        return self._size
-    
-    @size.setter
-    def size(self, size):
-        if isinstance(size, int):
-            self._size = size
-        else:
-            print("size must be an integer")
+    def get_brand(self):
+        return self.brand
 
-    def cobble(self):
-        self.condition = "New"
-        print("Your shoe is as good as new!")
+    def get_size(self):
+        return self.size
+
+    def get_color(self):
+        return self.color
+
+    def __str__(self):
+        return f"{self.color} {self.brand} in size {self.size}"
