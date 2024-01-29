@@ -1,17 +1,14 @@
+#!/usr/bin/env python3
+
 class Book:
-    def __init__(self, title, author, pages):
+    def __init__(self, title, page_count):
         self.title = title
-        self.author = author
-        self.pages = pages
+        if isinstance(page_count, int):
+            self.page_count = page_count
+        else:
+            print("page_count must be an integer")
 
-    def get_title(self):
-        return self.title
-
-    def get_author(self):
-        return self.author
-
-    def get_pages(self):
-        return self.pages
-
-    def __str__(self):
-        return f"{self.title} by {self.author}"
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")
+    
+book = Book("And Then There Were None", "ww")
