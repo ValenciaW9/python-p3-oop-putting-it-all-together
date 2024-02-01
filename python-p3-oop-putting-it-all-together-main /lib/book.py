@@ -1,20 +1,22 @@
+#!/usr/bin/env python3
+
 class Book:
-    def __init__(self, title, page_count, publication_year):
+    
+    def __init__(self, title, page_count):
         self.title = title
-        self.page_count = page_count  # Add page_count attribute
-        self.publication_year = publication_year
-        self.checked_out = False
+        self.page_count = page_count
 
-    def checkout(self):
-        if not self.checked_out:
-            self.checked_out = True
-            return True
+    @property
+    def page_count(self):
+        return self._page_count
+    
+    @page_count.setter
+    def page_count(self, page_count):
+        if isinstance(page_count, int):
+            self._page_count = page_count
         else:
-            return False
-
-    def checkin(self):
-        if self.checked_out:
-            self.checked_out = False
-            return True
-        else:
-            return False
+            print("page_count must be an integer")
+    
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")
+        
