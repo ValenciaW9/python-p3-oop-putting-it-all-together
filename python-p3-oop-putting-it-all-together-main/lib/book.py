@@ -1,17 +1,25 @@
+#!/usr/bin/env python3
+
 class Book:
-    def __init__(self, title, author, pages):
+    def __init__(self, title, page_count=0):
         self.title = title
-        self.author = author
-        self.pages = pages
+        self._page_count = page_count
 
-    def get_title(self):
-        return self.title
+    def turn_page(self):
+        print("Flipping the page...wow, you read fast!")
 
-    def get_author(self):
-        return self.author
+    def get_page_count(self):
+        return self._page_count
 
-    def get_pages(self):
-        return self.pages
+    def set_page_count(self, value):
+        
+        if type(value) == int:
+            self._page_count = value
 
-    def __str__(self):
-        return f"{self.title} by {self.author}"
+        print("page_count must be an integer")
+
+    page_count = property(get_page_count, set_page_count)
+    
+
+
+
