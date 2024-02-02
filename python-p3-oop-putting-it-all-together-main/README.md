@@ -71,7 +71,7 @@ folder. If you'd like to run the tests separately for the two classes, you can
 specify which test file to run:
 
 ```console
-$ pytest -x testing/book_test.py
+$ pytest -x testing/book_test.py 
 ```
 
 or:
