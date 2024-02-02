@@ -1,27 +1,23 @@
 #!/usr/bin/env python3
 
 class Shoe:
-    def __init__(self, brand, size, price):
-        if not isinstance(size, int):
-            raise ValueError("size must be an integer")
+    def __init__(self, brand,size):
         self.brand = brand
-        self.size = size
-        self.price = price
-        self.discount = 0
+        self._size = size
         self.condition = "New"
-
-    def set_discount(self, amount):
-        if 0 <= amount <= 100:
-            self.discount = amount
-        else:
-            raise ValueError("Discount must be between 0 and 100.")
 
     @property
-    def discounted_price(self):
-        return self.price * (1 - self.discount / 100)
+    def size(self):
+        return self._size
+    
+    @size.setter
+    def size(self, value):
+        if isinstance(value, int):
+            self._size = value
+        else:
+            print("size must be an integer")
+    
 
     def cobble(self):
-        self.condition = "New"
-
-    def repair(self):
-        return "The shoe has been repaired."
+        self.condition = "New"  # Reset the condition to "New" after cobbling
+        print("Your shoe is as good as new!")
