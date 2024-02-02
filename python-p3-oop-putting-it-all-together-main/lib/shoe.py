@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
 
 class Shoe:
-    def __init__(self, brand,size):
+    pass
+    def __init__(self, brand, size):
+        self.size = size
         self.brand = brand
-        self._size = size
-        self.condition = "New"
 
     @property
     def size(self):
         return self._size
     
     @size.setter
-    def size(self, value):
-        if isinstance(value, int):
-            self._size = value
+    def size(self, size):
+        if isinstance(size, int):
+            self._size = size
         else:
             print("size must be an integer")
-    
 
     def cobble(self):
-        self.condition = "New"  # Reset the condition to "New" after cobbling
+        self.condition = "New"
         print("Your shoe is as good as new!")
+
+ 
